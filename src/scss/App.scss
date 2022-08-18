@@ -1,7 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700&display=swap");
+
 * {
   background-color: rgb(1, 15, 43);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: white;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Merriweather Sans", sans-serif;
+}
+h2 {
+  font-size: 2rem;
 }
 
 @import "Header.scss";
+@import "Home.scss";
