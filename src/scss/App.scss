@@ -1,17 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700&display=swap");
 
 * {
-  background-color: rgb(1, 15, 43);
   color: white;
   box-sizing: border-box;
 }
 
 html {
   font-family: "Merriweather Sans", sans-serif;
+  background-color: rgb(1, 15, 43);
+  padding: 0.5rem;
 }
 h2 {
   font-size: 2rem;
 }
 
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  margin-left: 1rem;
+}
+
 @import "Header.scss";
 @import "Home.scss";
+@import "HomeMenu.scss";
