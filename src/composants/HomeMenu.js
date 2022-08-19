@@ -9,7 +9,7 @@ import {
   faApple,
 } from "@fortawesome/free-brands-svg-icons";
 
-const array = [
+const dataOfPlatform = [
   {
     platform: "Playstation",
     num: 2,
@@ -34,6 +34,29 @@ const array = [
     platform: "Apple",
     num: 5,
     logo: <FontAwesomeIcon icon={faApple} />,
+  },
+];
+
+const dataOfGenres = [
+  {
+    genre: "Action",
+    num: 4,
+  },
+  {
+    genre: "Adventure",
+    num: 3,
+  },
+  {
+    genre: "RPG",
+    num: 5,
+  },
+  {
+    genre: "Shooter",
+    num: 2,
+  },
+  {
+    genre: "Sport",
+    num: 15,
   },
 ];
 
@@ -84,23 +107,52 @@ const HomeMenu = (props) => {
   return (
     <div>
       <h3>Platforms</h3>
-      {array.map((platform, index) => {
+      {dataOfPlatform.map((platformFiltre, index) => {
         return (
           <div
             className="platform"
             key={index}
             onClick={() => {
-              searchbyplatform(platform.num);
+              searchbyplatform(platformFiltre.num);
             }}
           >
-            <p className="menuLogo">{platform.logo}</p>
-            <p style={{ color: "red" }}>{platform.platform}</p>
+            <p className="menuLogo">{platformFiltre.logo}</p>
+            <p
+              style={{
+                color:
+                  platform.indexOf(platformFiltre.num) !== -1
+                    ? "green"
+                    : "white",
+              }}
+            >
+              {platformFiltre.platform}
+            </p>
           </div>
         );
       })}
-      <h3>Genres</h3>
-      <p
-        className="platform"
+      <h3 className="genres">Genres</h3>
+      {dataOfGenres.map((genreFiltrer, index) => {
+        return (
+          <div
+            className="genre"
+            key={index}
+            onClick={() => {
+              searchbyGenres(genreFiltrer.num);
+            }}
+          >
+            <p
+              style={{
+                color:
+                  genres.indexOf(genreFiltrer.num) !== -1 ? "green" : "white",
+              }}
+            >
+              {genreFiltrer.genre}
+            </p>
+          </div>
+        );
+      })}
+      {/* <p
+        className="genre"
         onClick={() => {
           searchbyGenres(4);
         }}
@@ -108,7 +160,7 @@ const HomeMenu = (props) => {
         Action-4
       </p>
       <p
-        className="platform"
+        className="genre"
         onClick={() => {
           searchbyGenres(3);
         }}
@@ -116,7 +168,7 @@ const HomeMenu = (props) => {
         Adventure-3
       </p>
       <p
-        className="platform"
+        className="genre"
         onClick={() => {
           searchbyGenres(5);
         }}
@@ -124,7 +176,7 @@ const HomeMenu = (props) => {
         RPG-5
       </p>
       <p
-        className="platform"
+        className="genre"
         onClick={() => {
           searchbyGenres(2);
         }}
@@ -132,13 +184,13 @@ const HomeMenu = (props) => {
         Shooter-2
       </p>
       <p
-        className="platform"
+        className="genre"
         onClick={() => {
           searchbyGenres(15);
         }}
       >
         sport-15
-      </p>
+      </p> */}
     </div>
   );
 };

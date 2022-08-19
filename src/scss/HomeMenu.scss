@@ -2,11 +2,8 @@
   //   border: solid yellow 1px;
   display: flex;
   align-items: center;
-  margin-top: 1rem;
-  p {
-    // border: solid white 1px;
-    font-size: 1.1rem;
-  }
+  margin-top: 0.3rem;
+
   .menuLogo {
     margin: 0 1rem;
     height: 1rem;
@@ -14,6 +11,19 @@
     // border: solid red 1px;
   }
 }
+
 .platform:hover {
   cursor: pointer;
+}
+.genres {
+  margin-top: 1rem;
+}
+
+.genre:hover {
+  cursor: pointer;
+}
+
+.genre {
+  margin-top: 0.7rem;
+  margin-left: 1rem;
 }
