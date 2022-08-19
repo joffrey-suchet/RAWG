@@ -15,16 +15,21 @@ import HomeMenu from "../composants/HomeMenu";
 const Home = (props) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [platform, setPlatform] = useState([]);
+  const [genres, setGenres] = useState([]);
+
   const input = props.input;
 
   useEffect(() => {
+    const stringOfPlatformKey = platform.join(",");
+    const stringOfGenresKey = genres.join(",");
     try {
       const fetchData = async () => {
         // const response = await axios.get(
         //   `https://rawg-server.herokuapp.com/home?search=${props.input}`
         // );
         const response = await axios.get(
-          `http://localhost:3006/home?search=${input}`
+          `http://localhost:3006/home?search=${input}&parent_platforms=${stringOfPlatformKey}&genres=${stringOfGenresKey}`
         );
         // console.log("response.data==>", response.data);
         setData(response.data);
@@ -34,14 +39,19 @@ const Home = (props) => {
     } catch (error) {
       console.log("catch home request==>", error.message);
     }
-  }, [input]);
+  }, [input, platform, genres]);
 
   return isLoading ? (
     <h1>chargement en cours</h1>
   ) : (
     <section>
       <div className="menu">
-        <HomeMenu />
+        <HomeMenu
+          setPlatform={setPlatform}
+          platform={platform}
+          genres={genres}
+          setGenres={setGenres}
+        />
       </div>
       <div className="allGames">
         {data.results.map((game, index) => {
@@ -55,10 +65,10 @@ const Home = (props) => {
                 />
               </div>
               <div className="titleAnddetails">
-                {game.parent_platforms.map((platforms, index) => {
-                  return (
-                    <div>
-                      <p key={index} className="divLogo">
+                <div className="divLogo">
+                  {game.parent_platforms.map((platforms, index) => {
+                    return (
+                      <div key={index}>
                         {platforms.platform.name === "PC" && (
                           <FontAwesomeIcon icon={faWindows} className="logo" />
                         )}
@@ -77,14 +87,16 @@ const Home = (props) => {
                         {platforms.platform.name === "Apple Macintosh" && (
                           <FontAwesomeIcon icon={faApple} className="logo" />
                         )}
-                      </p>
-                    </div>
-                  );
-                })}
-                <p className="rating">
-                  {game.rating} / {game.rating_top}
-                  <p className="ratingNumbers">{game.ratings_count} votes</p>
-                </p>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="rating">
+                  <p>{game.rating}/</p>
+                  <p>{game.rating_top}</p>
+                  {/* <p className="ratingNumbers">{game.ratings_count} votes</p> */}
+                </div>
               </div>
               <h2>{game.name}</h2>
               <div className="details">

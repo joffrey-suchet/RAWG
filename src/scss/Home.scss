@@ -19,8 +19,16 @@ section {
 
       .titleAnddetails {
         display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .divLogo {
+          display: flex;
+        }
+
         .rating {
-          margin-left: 50%;
+          display: flex;
+
           .ratingNumbers {
             font-size: 0.8rem;
           }
@@ -73,10 +81,11 @@ section {
     .gamesheet:hover {
       transform: scale(1.1);
       filter: brightness(120%);
+      transition: all 0.5s ease-out;
     }
     .gamesheet:hover .details {
       display: inline-block;
-      width: 19rem;
+      width: 100%;
     }
   }
 }

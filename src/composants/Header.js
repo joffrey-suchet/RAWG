@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 const Header = (props) => {
   return (
     <div className="header">
-      <h1>RAWG</h1>
+      <Link to={"/home"} style={{ textDecoration: "none" }}>
+        <h1>RAWG</h1>
+      </Link>
+
       <input
         type="text"
         onChange={(event) => {
