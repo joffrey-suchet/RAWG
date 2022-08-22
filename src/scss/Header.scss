@@ -1,8 +1,14 @@
 .header {
-  margin: 2rem;
+  position: fixed;
+  // margin-top: -2rem;
+  width: 100%;
+  z-index: 01;
+  border-bottom: solid rgb(118, 127, 158) 1px;
+  padding: 0.5rem 0;
   display: flex;
   justify-content: space-between;
   color: white;
+  background-color: rgb(1, 15, 43);
   align-items: center;
   h1 {
     font-size: 2rem;
@@ -14,7 +20,7 @@
   input {
     width: 50%;
     margin: 0 2rem;
-    background-color: rgb(78, 78, 78);
+    background-color: rgba(255, 255, 255, 0.298);
     height: 1.8rem;
     border-radius: 1rem;
     padding: 0 1rem;

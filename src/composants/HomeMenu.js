@@ -105,7 +105,7 @@ const HomeMenu = (props) => {
   };
 
   return (
-    <div>
+    <div className="homeMenu">
       <h3>Platforms</h3>
       {dataOfPlatform.map((platformFiltre, index) => {
         return (

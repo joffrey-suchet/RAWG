@@ -15,7 +15,7 @@ function App() {
       <Header setInput={setInput} />
       <Routes>
         <Route path="/home" element={<Home input={input} />} />
-        <Route path="/game" element={<Game />} />
+        <Route path="/game/:id" element={<Game />} />
       </Routes>
     </Router>
   );

@@ -1,5 +1,6 @@
 section {
   // display: flex;
+  margin-top: 2rem;
   .pagination {
     margin: 2rem auto;
     display: flex;
@@ -7,6 +8,7 @@ section {
     width: 20%;
     font-size: 1.5rem;
     align-items: center;
+    padding-top: 2rem;
 
     p {
       color: rgb(231, 231, 231);
@@ -31,6 +33,7 @@ section {
     width: 85%;
     display: flex;
     flex-wrap: wrap;
+    // border: solid 1px red;
 
     .gamesheet {
       width: 24.6%;

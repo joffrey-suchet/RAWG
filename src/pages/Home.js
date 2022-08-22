@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Pagination } from "rsuite";
+import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faN } from "@fortawesome/free-solid-svg-icons";
@@ -95,7 +95,7 @@ const Home = (props) => {
         <div className="allGames">
           {data.results.map((game, index) => {
             return (
-              <div className="gamesheet" key={index}>
+              <Link className="gamesheet" to={`/game/${game.id}`} key={index}>
                 <div className="pictureo=OfGame">
                   <img
                     className="gamePicture"
@@ -162,7 +162,7 @@ const Home = (props) => {
                     <p>{game.suggestions_count}</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
