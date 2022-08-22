@@ -5,6 +5,7 @@ import { useState } from "react";
 // import des Pages
 import Home from "./pages/Home";
 import Game from "./pages/Game";
+import Signup from "./composants/Signup";
 // import des componsants
 import Header from "./composants/Header";
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/home" element={<Home input={input} />} />
         <Route path="/game/:id" element={<Game />} />
+        <Route path="/home/signup" element={<Signup />} />
       </Routes>
     </Router>
   );
