@@ -15,8 +15,13 @@ const Header = (props) => {
         }}
       />
       <div>
-        <h2>LOG IN</h2>
-        <h2>SIGN UP</h2>
+        <Link to={"/home/signin"}>
+          <h2>SIGN IN</h2>
+        </Link>
+
+        <Link to={"/home/signup"}>
+          <h2>SIGN UP</h2>
+        </Link>
       </div>
     </div>
   );

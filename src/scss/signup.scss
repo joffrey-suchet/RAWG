@@ -1,11 +1,54 @@
 .signupPage {
-  height: 45rem;
-  width: 30rem;
-  margin: 10rem auto;
-  text-align: center;
+  margin: 5rem auto;
+  //   height: 300px;
+  //   width: 200px;
 }
 
 .form {
-  display: flex;
+  min-width: 20rem;
   margin: 0 auto;
+  width: 20%;
+  height: 400px;
+  padding: 0.5rem;
+  background-color: rgba(59, 65, 82, 0.771);
+  border: solid 1px rgb(193, 207, 255);
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 100;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-bottom: 0.2rem;
+    border-bottom: solid 1px grey;
+
+    p {
+      color: grey;
+      margin-top: 0.3rem;
+    }
+
+    input {
+      width: 50%;
+      height: 1.5rem;
+      border-radius: 1rem;
+      padding: 0.5rem;
+      color: black;
+      min-width: 5rem;
+      border: none;
+    }
+  }
+
+  .errorMessage {
+    margin-top: 1.5rem;
+    color: red;
+  }
+  .submit {
+    background-color: green;
+    border: none;
+    height: 1.5rem;
+    border-radius: 1rem;
+    width: 30%;
+    margin-top: 1rem;
+  }
 }

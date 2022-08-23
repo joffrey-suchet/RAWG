@@ -2,8 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Signup = () => {
-  const [username, setUsername] = useState("");
+const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -11,41 +10,42 @@ const Signup = () => {
 
   const navigate = useNavigate();
 
-  const handleSignup = async (event) => {
-    try {
-      event.preventDefault();
-      setErrorMessage("");
-      if (username && email && password) {
+  const handleSignin = async (event) => {
+    event.preventDefault();
+    setErrorMessage("");
+    if (email && password) {
+      try {
         if (password === confirmPassword) {
           const response = await axios.post(
-            "http://localhost:3006/home/signup",
+            "http://localhost:3006/home/signin",
             {
               email: email,
-              username: username,
               password: password,
             }
           );
-          if (response.status === 200) {
-            console.log("compte créer: ", response.data);
-            alert("accout create welcome");
+
+          console.log(response.data);
+          if (response.data.token) {
+            alert("you are login. welcome");
             navigate("/home");
           }
         } else {
           setErrorMessage("passwords must be the same");
         }
-      } else {
-        setErrorMessage("missing parameter");
+      } catch (error) {
+        console.log("catch of signin =>", error.message);
+        if (error.response.status === 401) {
+          setErrorMessage("email or password is incorrect ");
+        }
       }
-    } catch (error) {
-      console.log("catch of signup request =>", error.response.data);
-      if (error.response.status === 409) {
-        setErrorMessage("this email already has an account");
-      }
+    } else {
+      setErrorMessage("missing parameter");
     }
   };
+
   return (
     <div className="signupPage">
-      <form className="container" onSubmit={handleSignup}>
+      <form className="container" onSubmit={handleSignin}>
         <div className="form">
           <h3>Sign up</h3>
           <div>
@@ -55,15 +55,6 @@ const Signup = () => {
               placeholder="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-            />
-          </div>
-          <div>
-            <p>Your name:</p>
-            <input
-              type="username"
-              placeholder="username"
-              value={username}
-              onChange={(event) => setUsername(event.target.value)}
             />
           </div>
           <div>
@@ -91,4 +82,4 @@ const Signup = () => {
     </div>
   );
 };
-export default Signup;
+export default Signin;
